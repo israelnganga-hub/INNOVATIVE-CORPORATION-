@@ -3,85 +3,188 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>INNO CORP. -Innovation Corpration</title>
+<title>INNO CORP.</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
-:root {
+:root{
   --navy:#0b1220;
   --navy2:#0f1a2e;
   --gold:#c9a84c;
   --gold2:#e8c96a;
-  --white:#eef3f8;
   --text:#8aa0b8;
+  --white:#eef3f8;
 }
 
-/* RESET */
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Raleway';background:var(--navy);color:var(--text);scroll-behavior:smooth}
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'Raleway',sans-serif;
+  background:var(--navy);
+  color:var(--text);
+}
 
 /* NAV */
 nav{
-position:fixed;top:0;width:100%;z-index:1000;
-display:flex;justify-content:space-between;align-items:center;
-padding:20px 50px;background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 50px;
+  background:rgba(0,0,0,0.65);
+  backdrop-filter:blur(10px);
+  z-index:1000;
 }
-nav a{color:white;text-decoration:none;margin:0 10px;font-size:14px}
-nav a:hover{color:var(--gold)}
+
+nav .logo{
+  font-family:'Cinzel';
+  color:white;
+  letter-spacing:3px;
+  font-size:18px;
+}
+
+nav ul{
+  display:flex;
+  list-style:none;
+}
+
+nav ul li a{
+  color:white;
+  text-decoration:none;
+  margin-left:25px;
+  font-size:13px;
+}
+
+nav ul li a:hover{
+  color:var(--gold);
+}
 
 /* LANDING */
 .landing{
-height:100vh;display:flex;align-items:center;justify-content:center;
-text-align:center;position:relative;
+  height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
-.landing img{
-position:absolute;width:100%;height:100%;object-fit:cover;
-filter:brightness(0.4);
-}
-.landing-content{position:relative}
-.landing h1{
-font-family:'Cinzel';font-size:70px;color:white;letter-spacing:5px;
-}
-.landing p{color:var(--gold);margin:20px 0}
 
-/* BUTTON */
+.landing img{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+}
+
+.landing::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+}
+
+.landing-content{
+  position:relative;
+  z-index:1;
+}
+
+.landing h1{
+  font-family:'Cinzel';
+  font-size:70px;
+  color:white;
+  letter-spacing:6px;
+}
+
+.landing p{
+  color:var(--gold);
+  margin:20px 0;
+}
+
 .btn{
-padding:15px 30px;
-background:linear-gradient(135deg,var(--gold2),var(--gold));
-color:black;text-decoration:none;
+  display:inline-block;
+  padding:14px 30px;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  color:#000;
+  text-decoration:none;
+  font-weight:600;
 }
 
 /* SECTIONS */
-section{padding:100px 50px}
-.section-alt{
-background:
-linear-gradient(rgba(15,26,46,0.9),rgba(15,26,46,1)),
-url("https://images.unsplash.com/photo-1531482615713-2afd69097998");
-background-size:cover;
+section{
+  padding:110px 60px;
 }
 
-h2{color:white;font-family:'Cinzel';margin-bottom:20px}
+h2{
+  font-family:'Cinzel';
+  font-size:40px;
+  color:white;
+  margin-bottom:20px;
+}
 
-/* HERO */
-.hero{
-background:
-linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
-url("https://images.unsplash.com/photo-1581093588401-22c4c7c2a0c3");
-background-size:cover;
+/* DOMAINS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card{
+  background:var(--navy2);
+  padding:30px;
+  border:1px solid #1f2d44;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  border-color:var(--gold);
+}
+
+/* MISSION */
+.alt{
+  background:
+  linear-gradient(rgba(15,26,46,0.9),rgba(15,26,46,1)),
+  url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d");
+  background-size:cover;
+  background-position:center;
 }
 
 /* CONTACT */
 input,textarea{
-width:100%;padding:12px;margin:10px 0;background:#111;border:none;color:white;
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  background:#111;
+  border:1px solid #333;
+  color:white;
 }
+
 button{
-padding:15px;background:var(--gold);border:none;width:100%;
+  width:100%;
+  padding:14px;
+  background:var(--gold);
+  border:none;
+  cursor:pointer;
+  font-weight:600;
 }
 
 /* FOOTER */
 footer{
-text-align:center;padding:40px;background:#000;color:#777;
+  text-align:center;
+  padding:40px;
+  background:#000;
+  color:#666;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr;}
+  nav{flex-direction:column;}
 }
 </style>
 </head>
@@ -90,73 +193,82 @@ text-align:center;padding:40px;background:#000;color:#777;
 
 <!-- NAV -->
 <nav>
-<div>INNO CORP.</div>
-<div>
-<a href="#domains">Domains</a>
-<a href="#mission">Mission</a>
-<a href="#contact">Contact</a>
-</div>
+  <div class="logo">INNO CORP.</div>
+  <ul>
+    <li><a href="#landing">Home</a></li>
+    <li><a href="#domains">Domains</a></li>
+    <li><a href="#mission">Mission</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <!-- LANDING -->
-<section class="landing">
-<img src="https://images.unsplash.com/photo-1581093588401-22c4c7c2a0c3">
-<div class="landing-content">
-<h1>INNO CORP.</h1>
-<p>Engineering Africa’s Future</p>
-<a href="#domains" class="btn">Enter</a>
-</div>
-</section>
-
-<!-- HERO -->
-<section class="hero">
-<h2>Building a Better World</h2>
-<p>Defence · Environment · Humanity</p>
+<section class="landing" id="landing">
+  <img src="https://images.unsplash.com/photo-1581093588401-22c4c7c2a0c3">
+  <div class="landing-content">
+    <h1>INNO CORP.</h1>
+    <p>Engineering Africa’s Future</p>
+    <a href="#domains" class="btn">Enter</a>
+  </div>
 </section>
 
 <!-- DOMAINS -->
 <section id="domains">
-<h2>Domains</h2>
-<p>Defence Technology, Environmental Engineering, Human Wellbeing systems.</p>
+  <h2>Domains</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Defence Tech</h3>
+      <p>Advanced security systems and autonomous engineering solutions.</p>
+    </div>
+    <div class="card">
+      <h3>Environment</h3>
+      <p>Renewable energy systems and environmental protection tech.</p>
+    </div>
+    <div class="card">
+      <h3>Human Systems</h3>
+      <p>Health, wellbeing, and human-centered engineering tools.</p>
+    </div>
+  </div>
 </section>
 
 <!-- MISSION -->
-<section id="mission" class="section-alt">
-<h2>Our Mission</h2>
-<p>To build systems that protect, sustain, and empower humanity through engineering.</p>
+<section id="mission" class="alt">
+  <h2>Our Mission</h2>
+  <p>To build systems that protect, sustain, and empower humanity through engineering and innovation.</p>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-<h2>Contact</h2>
+  <h2>Contact</h2>
 
-<input type="text" placeholder="Name" id="name">
-<input type="email" placeholder="Email" id="email">
-<textarea placeholder="Message" id="msg"></textarea>
+  <input type="text" id="name" placeholder="Name">
+  <input type="email" id="email" placeholder="Email">
+  <textarea id="msg" placeholder="Message"></textarea>
 
-<button onclick="sendMail()">Send Message</button>
+  <button onclick="sendMail()">Send Message</button>
 </section>
 
+<!-- FOOTER -->
 <footer>
-© 2026 INNO CORP.
+  © 2026 INNO CORP. All Rights Reserved.
 </footer>
 
 <script>
 function sendMail(){
-let name=document.getElementById('name').value;
-let email=document.getElementById('email').value;
-let msg=document.getElementById('msg').value;
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const msg = document.getElementById("msg").value;
 
-window.location.href=
-`mailto:innocorp.company@gmail.com?subject=Inquiry&body=Name:${name}%0AEmail:${email}%0A${msg}`;
+  window.location.href =
+  `mailto:innocorp.company@gmail.com?subject=INNO CORP Inquiry&body=Name: ${name}%0AEmail: ${email}%0A%0A${msg}`;
 }
 
 /* smooth scroll */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
-a.onclick=function(e){
-e.preventDefault();
-document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:"smooth"});
-}
+  a.addEventListener("click", e=>{
+    e.preventDefault();
+    document.querySelector(a.getAttribute("href")).scrollIntoView({behavior:"smooth"});
+  });
 });
 </script>
 
