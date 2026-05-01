@@ -11,16 +11,10 @@
             --navy: #0b1220; --navy2: #0f1a2e; --navy3: #152038;
             --panel: #111d30; --border: #1e2f48; --border2: #2a4060;
             --gold: #c9a84c; --gold2: #e8c96a; --gold3: #a07830;
-            --gold-glow: rgba(201,168,76,0.3);
-            --steel: #7a9bb8; --steel2: #4a6b8a; --steel3: #b8d0e8;
-            --text: #8aa0b8; --muted: #3d5570; --green: #4a9e6e;
+            --gold-glow: rgba(201,168,76,0.45); --text: #8aa0b8; --muted: #3d5570;
             --teal: #2a8fa0; --rose: #a05878;
         }
-        [data-theme="light"] {
-            --navy: #f8f9fc; --navy2: #ffffff; --panel: #f1f3f8;
-            --text: #334155; --muted: #64748b; --white: #0f172a;
-        }
-        * { margin:0; padding:0; box-sizing:border-box; }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior:smooth; }
         body {
             background: var(--navy); color: var(--text);
@@ -28,180 +22,139 @@
             overflow-x: hidden; cursor: none;
         }
 
-        /* Cursor */
-        .cursor, .cursor-ring { position:fixed; pointer-events:none; z-index:99999; }
-        .cursor { width:8px; height:8px; background:var(--gold); border-radius:50%; mix-blend-mode:screen; }
-        .cursor-ring { width:34px; height:34px; border:1px solid rgba(201,168,76,0.5); border-radius:50%; transform:translate(-13px,-13px); transition: all .2s; }
+        /* Shiny Cursor */
+        .cursor { position:fixed; width:9px; height:9px; background:var(--gold2); border-radius:50%; pointer-events:none; z-index:99999; mix-blend-mode:screen; box-shadow:0 0 15px var(--gold-glow); }
+        .cursor-ring { position:fixed; width:36px; height:36px; border:1.5px solid var(--gold); border-radius:50%; pointer-events:none; z-index:99998; transform:translate(-18px,-18px); transition:all .25s; }
 
-        /* Background grid */
+        /* Background */
         body::after {
             content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
-            background-image: linear-gradient(rgba(201,168,76,0.025) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(201,168,76,0.025) 1px, transparent 1px);
-            background-size: 60px 60px; animation: grid-shift 40s linear infinite;
+            background-image: linear-gradient(rgba(201,168,76,0.035) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(201,168,76,0.035) 1px, transparent 1px);
+            background-size: 60px 60px; animation: grid-shift 30s linear infinite;
         }
         @keyframes grid-shift { to { background-position: 60px 60px; } }
 
-        /* NAV */
+        /* NAV - Clean & Original Feel */
         nav {
             position:fixed; top:0; left:0; right:0; z-index:1000;
             padding: 0 64px; height:76px; display:flex; align-items:center;
-            justify-content:space-between; background: rgba(11,18,32,0.95);
+            justify-content:space-between; background: rgba(11,18,32,0.96);
             backdrop-filter: blur(24px); border-bottom: 1px solid var(--border);
         }
-        .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+        .nav-logo { display:flex; align-items:center; gap:14px; text-decoration:none; }
+        .logo-nut { font-size:38px; color:var(--gold2); filter:drop-shadow(0 0 12px var(--gold-glow)); transition:0.4s; }
+        .nav-logo:hover .logo-nut { transform:rotate(25deg) scale(1.08); }
         .nav-logo-text { font-family:'Cinzel', serif; font-size:18px; font-weight:700; color:var(--white); letter-spacing:4px; }
-        .nav-logo-text span { color:var(--gold); }
+        .nav-logo-text span { color:var(--gold2); }
+
         .nav-links { display:flex; gap:36px; list-style:none; }
         .nav-links a {
             font-family:'Share Tech Mono', monospace; font-size:10px; color:var(--muted);
-            text-decoration:none; letter-spacing:2px; text-transform:uppercase; position:relative;
+            text-decoration:none; letter-spacing:2px; text-transform:uppercase;
+            position:relative;
         }
-        .nav-links a:hover { color:var(--gold); }
-        .hamburger { display:none; font-size:24px; color:var(--gold); cursor:pointer; }
+        .nav-links a::after {
+            content:''; position:absolute; bottom:-5px; left:0; right:100%; height:1px;
+            background:var(--gold2); transition:right .4s ease;
+        }
+        .nav-links a:hover { color:var(--gold2); }
+        .nav-links a:hover::after { right:0; }
 
-        /* HERO with real background */
+        .nav-cta {
+            font-family:'Share Tech Mono', monospace; font-size:10px; letter-spacing:2px;
+            color:var(--navy); background:linear-gradient(135deg, var(--gold2), var(--gold3));
+            padding:10px 26px; text-decoration:none; text-transform:uppercase;
+            box-shadow:0 4px 20px var(--gold-glow); transition:all .3s;
+        }
+        .nav-cta:hover { transform:translateY(-2px); box-shadow:0 8px 25px var(--gold-glow); }
+
+        /* Hero */
         .hero {
             min-height:100vh; display:flex; flex-direction:column; justify-content:center;
             position:relative; padding:140px 64px 100px;
-            background: linear-gradient(rgba(11,18,32,0.78), rgba(11,18,32,0.85)),
-                        url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat fixed;
-            background-attachment: fixed;
-        }
-        .hero::before {
-            content:''; position:absolute; inset:0;
-            background: radial-gradient(circle at center, rgba(201,168,76,0.08) 0%, transparent 70%);
+            background: linear-gradient(rgba(11,18,32,0.75), rgba(11,18,32,0.88)),
+                        url('https://picsum.photos/id/1015/2000/1300') center/cover no-repeat fixed;
         }
 
-        /* All other original styles preserved + enhanced interactivity */
-        /* (I kept the full original CSS blocks for domains, mission, capabilities, roadmap, contact, footer to avoid breaking anything) */
-
-        /* New: Mobile menu */
-        .mobile-menu {
-            position:fixed; top:76px; left:0; right:0; background:var(--navy2);
-            display:none; flex-direction:column; padding:20px; gap:20px; z-index:999;
-            border-top:1px solid var(--border);
-        }
-        .mobile-menu a { font-size:14px; padding:12px 0; border-bottom:1px solid var(--border); }
-
-        /* Gallery Section */
-        .gallery-grid {
-            display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:24px;
-        }
-        .gallery-card {
-            background:var(--panel); border:1px solid var(--border); overflow:hidden;
-            transition: all 0.4s ease;
-        }
-        .gallery-card:hover { transform:translateY(-12px); box-shadow:0 20px 40px rgba(201,168,76,0.15); }
-        .gallery-card img { width:100%; height:240px; object-fit:cover; }
-
-        /* Back to top */
-        #backToTop {
-            position:fixed; bottom:30px; right:30px; background:var(--gold);
-            color:var(--navy); width:50px; height:50px; border-radius:50%;
-            display:none; align-items:center; justify-content:center; font-size:20px;
-            box-shadow:0 4px 15px rgba(201,168,76,0.3); z-index:999; cursor:pointer;
+        /* Shine effects */
+        .btn-gold:hover, .domain-card:hover {
+            box-shadow: 0 12px 35px var(--gold-glow);
         }
 
-        /* Rest of your original styles (domains, stats, mission, etc.) go here — I kept them intact in the full version */
+        .reveal { opacity:0; transform:translateY(40px); transition:all .8s ease; }
+        .reveal.visible { opacity:1; transform:translateY(0); }
     </style>
 </head>
 <body>
-    <!-- NAV with mobile + theme toggle -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- NAV -->
     <nav>
         <a href="#" class="nav-logo">
-            <i class="fas fa-nut" style="font-size:32px; color:var(--gold);"></i> <!-- Nut icon -->
+            <i class="fas fa-nut logo-nut"></i>
             <span class="nav-logo-text">INNO<span> CORP.</span></span>
         </a>
         <ul class="nav-links">
             <li><a href="#domains">Domains</a></li>
             <li><a href="#mission">Mission</a></li>
             <li><a href="#capabilities">Capabilities</a></li>
-            <li><a href="#gallery">Projects</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#roadmap">Roadmap</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        <div style="display:flex; gap:16px; align-items:center;">
-            <button id="themeToggle" style="background:none;border:none;color:var(--gold);font-size:18px;cursor:pointer;">☀️</button>
-            <a href="#contact" class="nav-cta">Collaborate</a>
-            <div class="hamburger" id="hamburger">☰</div>
-        </div>
+        <a href="#contact" class="nav-cta">Collaborate</a>
     </nav>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <!-- links duplicated for mobile -->
-    </div>
 
     <!-- HERO -->
     <section class="hero" id="hero">
-        <!-- Same powerful headline + pillars as before, with real Kenyan engineering vibe background -->
-        <!-- ... (kept your original hero content) ... -->
-    </section>
-
-    <!-- STATS, DOMAINS, MISSION, CAPABILITIES retained exactly -->
-
-    <!-- NEW: PROJECTS / PROTOTYPES GALLERY -->
-    <section class="section" id="gallery">
-        <div class="sec-label"><span>Current Work</span></div>
-        <h2 class="sec-title reveal">Prototypes &amp; Projects</h2>
-        <div class="gallery-grid reveal">
-            <!-- Real-scene cards -->
-            <div class="gallery-card">
-                <img src="https://picsum.photos/id/1015/800/600" alt="Solar Installation Kenya">
-                <div style="padding:20px;">
-                    <h4 style="color:var(--gold);">Off-Grid Solar Microgrid</h4>
-                    <p>Deployed in rural Kitui — powering 120 households with hybrid solar + battery system.</p>
-                </div>
+        <div style="max-width:920px; position:relative; z-index:2;">
+            <div class="hero-eyebrow">
+                <span class="eyebrow-text">Innovation Corporation</span>
+                <span class="eyebrow-dot">NAIROBI, KENYA</span>
             </div>
-            <div class="gallery-card">
-                <img src="https://picsum.photos/id/201/800/600" alt="UAV Kenya">
-                <div style="padding:20px;">
-                    <h4 style="color:var(--gold);">Surveillance UAV Prototype</h4>
-                    <p>Long-endurance reconnaissance drone tested with Kenya Navy partners.</p>
-                </div>
-            </div>
-            <div class="gallery-card">
-                <img src="https://picsum.photos/id/133/800/600" alt="Community Health Tech">
-                <div style="padding:20px;">
-                    <h4 style="color:var(--gold);">Mental Health Monitoring App</h4>
-                    <p>Community health worker platform reaching underserved areas in Nairobi slums.</p>
-                </div>
+            <h1 style="font-family:'Cinzel', serif; font-size:clamp(52px, 8vw, 94px); line-height:1.05; color:#fff; letter-spacing:2px;">
+                BUILDING A<br><span style="color:var(--gold2);">BETTER</span><br>WORLD
+            </h1>
+            <p style="font-size:1.4rem; color:#b8d0e8; margin:30px 0 50px;">Defence · Environment · Humanity</p>
+            <div>
+                <a href="#domains" class="btn-gold" style="padding:16px 42px; font-family:'Cinzel',serif; font-size:13px; letter-spacing:3px; text-decoration:none; display:inline-block; margin-right:16px;">Explore Our Work</a>
+                <a href="#contact" class="nav-cta">Partner With Us</a>
             </div>
         </div>
     </section>
 
-    <!-- ROADMAP + CONTACT (original + enhanced form) -->
-
-    <button id="backToTop" title="Back to Top">↑</button>
+    <!-- Paste the rest of your original sections here (Domains with updated descriptions, Mission, Capabilities, Projects, Roadmap, Contact, Footer) -->
 
     <script>
-        // All previous cursor, scroll reveal, active nav, form logic kept + expanded
+        // Cursor
+        const cur = document.getElementById('cursor');
+        const ring = document.getElementById('cursorRing');
+        let mx = 0, my = 0;
+        document.addEventListener('mousemove', e => {
+            mx = e.clientX; my = e.clientY;
+            cur.style.left = mx - 4.5 + 'px';
+            cur.style.top = my - 4.5 + 'px';
+        });
+        (function ringAnim() {
+            ring.style.left = mx - 18 + 'px';
+            ring.style.top = my - 18 + 'px';
+            requestAnimationFrame(ringAnim);
+        })();
 
-        // Mobile menu
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-        hamburger.addEventListener('click', () => {
-            mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
         });
 
-        // Theme toggle
-        const themeToggle = document.getElementById('themeToggle');
-        themeToggle.addEventListener('click', () => {
-            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-            document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
-            themeToggle.textContent = isLight ? '☀️' : '🌙';
-        });
-
-        // Back to top
-        const backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            backToTop.style.display = window.scrollY > 600 ? 'flex' : 'none';
-        });
-        backToTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
-
-        // Form + all other interactions (kept from previous version)
-        console.log('%cINNO CORP — Fully Upgraded & Ready', 'color:#c9a84c; font-size:14px; font-family:monospace;');
+        console.log('%cINNO CORP — INNOVATIVE-CORPRATION | Built by Israel Nganga', 'color:#e8c96a; font-size:14px; font-family:monospace;');
     </script>
 </body>
 </html>
