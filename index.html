@@ -23,16 +23,15 @@
         }
 
         /* Cursor */
-        .cursor, .cursor-ring { position:fixed; pointer-events:none; z-index:99999; }
-        .cursor { width:8px; height:8px; background:var(--gold); border-radius:50%; mix-blend-mode:screen; box-shadow:0 0 12px var(--gold-glow); }
-        .cursor-ring { width:34px; height:34px; border:1px solid rgba(201,168,76,0.5); border-radius:50%; transform:translate(-13px,-13px); transition: all .2s; }
+        .cursor { position:fixed; width:8px; height:8px; background:var(--gold2); border-radius:50%; pointer-events:none; z-index:99999; mix-blend-mode:screen; box-shadow:0 0 12px var(--gold-glow); }
+        .cursor-ring { position:fixed; width:34px; height:34px; border:1px solid var(--gold); border-radius:50%; pointer-events:none; z-index:99998; transform:translate(-17px,-17px); transition:all .25s; }
 
         /* Background grid */
         body::after {
             content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
             background-image: linear-gradient(rgba(201,168,76,0.025) 1px, transparent 1px),
                               linear-gradient(90deg, rgba(201,168,76,0.025) 1px, transparent 1px);
-            background-size: 60px 60px; animation: grid-shift 40s linear infinite;
+            background-size: 60px 60px; animation: grid-shift 35s linear infinite;
         }
         @keyframes grid-shift { to { background-position: 60px 60px; } }
 
@@ -67,7 +66,7 @@
         }
         .nav-cta:hover { transform:translateY(-2px); box-shadow:0 8px 25px var(--gold-glow); }
 
-        /* HERO - Relevant real background with text overlay */
+        /* HERO - Relevant background with text */
         .hero {
             min-height:100vh; display:flex; flex-direction:column; justify-content:center;
             position:relative; padding:140px 64px 100px;
@@ -79,7 +78,7 @@
             background: radial-gradient(circle at center, rgba(201,168,76,0.08) 0%, transparent 70%);
         }
 
-        /* All other original styles preserved */
+        /* Other styles */
         .section { padding:120px 64px; }
         .sec-label { display:flex; align-items:center; gap:14px; margin-bottom:16px; }
         .sec-label span { font-family:'Share Tech Mono', monospace; font-size:10px; color:var(--gold); letter-spacing:4px; text-transform:uppercase; }
@@ -103,7 +102,7 @@
     <!-- NAV -->
     <nav>
         <a href="#" class="nav-logo">
-            <i class="fas fa-nut" style="font-size:32px; color:var(--gold);"></i>
+            <i class="fas fa-nut logo-nut"></i>
             <span class="nav-logo-text">INNO<span> CORP.</span></span>
         </a>
         <ul class="nav-links">
@@ -117,7 +116,7 @@
         <a href="#contact" class="nav-cta">Collaborate</a>
     </nav>
 
-    <!-- HERO - Relevant background with text -->
+    <!-- HERO -->
     <section class="hero" id="hero">
         <div style="max-width:920px; position:relative; z-index:2;">
             <div style="display:flex; align-items:center; gap:16px; margin-bottom:24px;">
@@ -135,7 +134,7 @@
         </div>
     </section>
 
-    <!-- PROJECTS with your exact requested explanations -->
+    <!-- PROJECTS with your requested explanations -->
     <section class="section" id="gallery">
         <div class="sec-label"><span>Current Work</span></div>
         <h2 class="sec-title reveal">Prototypes & Projects</h2>
@@ -144,7 +143,7 @@
                 <img src="https://picsum.photos/id/1015/800/600" alt="Defence Tech">
                 <div style="padding:20px;">
                     <h4 style="color:var(--gold);">Sustainable Defence Technology</h4>
-                    <p>We are building sustainable, eco-friendly, and efficient technology for defense.</p>
+                    <p>We are building sustainable and eco friendly and efficient technology for defense.</p>
                 </div>
             </div>
             <div class="gallery-card">
@@ -158,7 +157,7 @@
                 <img src="https://picsum.photos/id/133/800/600" alt="Mental Health">
                 <div style="padding:20px;">
                     <h4 style="color:var(--gold);">Mental Health & Human Relations</h4>
-                    <p>We are working with our co-company named JALI to develop mental health technology and community systems.</p>
+                    <p>We are working with a co-company named JALI.</p>
                 </div>
             </div>
         </div>
@@ -180,7 +179,7 @@
             requestAnimationFrame(animRing);
         })();
 
-        // FIXED NAVIGATION - All buttons work
+        // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const target = document.querySelector(this.getAttribute('href'));
@@ -191,7 +190,7 @@
             });
         });
 
-        console.log('%c INNO CORP — Fully Fixed & Complete', 'color:#e8c96a; font-size:14px; font-family:monospace;');
+        console.log('%c✅ INNO CORP — Fixed & Ready', 'color:#e8c96a; font-size:14px; font-family:monospace;');
     </script>
 </body>
 </html>
