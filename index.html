@@ -66,7 +66,7 @@
         }
         .nav-cta:hover { transform:translateY(-2px); box-shadow:0 8px 25px var(--gold-glow); }
 
-        /* HERO - Relevant real engineering background */
+        /* HERO */
         .hero {
             min-height:100vh; display:flex; flex-direction:column; justify-content:center;
             position:relative; overflow:hidden; padding:120px 64px 80px;
@@ -95,6 +95,12 @@
             transition: all 0.4s ease;
         }
         .domain-card:hover { transform:translateY(-8px); border-color:var(--gold2); box-shadow:0 15px 40px rgba(201,168,76,0.25); }
+
+        /* Gallery */
+        .gallery-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:24px; }
+        .gallery-card { background:var(--panel); border:1px solid var(--border); overflow:hidden; transition: all 0.4s ease; }
+        .gallery-card:hover { transform:translateY(-12px); box-shadow:0 20px 40px rgba(201,168,76,0.2); }
+        .gallery-card img { width:100%; height:240px; object-fit:cover; }
 
         .reveal { opacity:0; transform:translateY(40px); transition:all .8s ease; }
         .reveal.visible { opacity:1; transform:translateY(0); }
@@ -138,7 +144,27 @@
         </div>
     </section>
 
-    <!-- DOMAINS with your updates -->
+    <!-- STATS -->
+    <div class="stats" style="display:grid; grid-template-columns:repeat(4,1fr); background:var(--navy2); border-bottom:1px solid var(--border);">
+        <div class="stat-item" style="padding:36px 40px; text-align:center;">
+            <div class="stat-val" style="font-size:42px; color:var(--gold);">3<span style="font-size:24px;">+</span></div>
+            <div class="stat-lbl" style="font-size:9px; color:var(--muted);">Core Mission Domains</div>
+        </div>
+        <div class="stat-item" style="padding:36px 40px; text-align:center;">
+            <div class="stat-val" style="font-size:42px; color:var(--gold);">∞</div>
+            <div class="stat-lbl" style="font-size:9px; color:var(--muted);">Engineering Ambition</div>
+        </div>
+        <div class="stat-item" style="padding:36px 40px; text-align:center;">
+            <div class="stat-val" style="font-size:42px; color:var(--gold);">10<span style="font-size:24px;">yr</span></div>
+            <div class="stat-lbl" style="font-size:9px; color:var(--muted);">Empire Vision Horizon</div>
+        </div>
+        <div class="stat-item" style="padding:36px 40px; text-align:center;">
+            <div class="stat-val" style="font-size:42px; color:var(--gold);">0<span style="font-size:24px;">→1</span></div>
+            <div class="stat-lbl" style="font-size:9px; color:var(--muted);">From Idea to Global Force</div>
+        </div>
+    </div>
+
+    <!-- DOMAINS -->
     <section class="section" id="domains">
         <div class="sec-label"><span>What We Build</span></div>
         <h2 class="sec-title reveal">Three Domains.<br>One Mission.</h2>
@@ -151,11 +177,11 @@
             </div>
             <div class="domain-card">
                 <h3 style="color:var(--teal);">Environmental & Energy Engineering</h3>
-                <p>We are developing systems that convert captured carbon into usable fuel that can be refined and converted into various forms — a breakthrough solution for clean energy in East Africa and beyond.</p>
+                <p>We are developing systems that convert captured carbon into usable fuel that can be refined and converted into various forms — addressing climate and energy challenges in East Africa and beyond.</p>
             </div>
             <div class="domain-card">
                 <h3 style="color:var(--rose);">Mental Health & Human Relations</h3>
-                <p>Technology in service of human dignity. We are working closely with our partner company <strong>JALI</strong> to develop mental health diagnostic tools, community connectivity systems, and accessible platforms for underserved communities.</p>
+                <p>Technology in service of human dignity. We are working closely with our partner company <strong>JALI</strong> to develop mental health diagnostic tools, community connectivity systems, and accessible platforms.</p>
             </div>
         </div>
     </section>
@@ -189,13 +215,13 @@
         </div>
     </section>
 
-    <!-- Contact from your original code -->
+    <!-- Contact from your original -->
     <section class="section section-alt" id="contact">
         <div class="sec-label"><span>Get In Touch</span></div>
         <h2 class="sec-title reveal">Collaborate With<br>INNO CORP.</h2>
         <p class="sec-desc reveal">We welcome partnerships, inquiries, and feedback from governments, industries, investors, researchers, and anyone serious about building a better world through engineering.</p>
         
-        <div style="text-align:center; max-width:600px; margin:40px auto;">
+        <div style="text-align:center;">
             <p><strong>Headquarters:</strong> Nairobi, Kenya</p>
             <p><strong>Email:</strong> <a href="mailto:innocorp.company@gmail.com" style="color:var(--gold);">innocorp.company@gmail.com</a></p>
         </div>
@@ -217,7 +243,7 @@
             requestAnimationFrame(animRing);
         })();
 
-        // Smooth scrolling for navigation
+        // Smooth scrolling for all navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const target = document.querySelector(this.getAttribute('href'));
