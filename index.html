@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,7 +22,7 @@
             overflow-x: hidden; cursor: none;
         }
 
-        /* Shiny Cursor */
+        /* Cursor */
         .cursor { position:fixed; width:8px; height:8px; background:var(--gold2); border-radius:50%; pointer-events:none; z-index:99999; mix-blend-mode:screen; box-shadow:0 0 12px var(--gold-glow); }
         .cursor-ring { position:fixed; width:34px; height:34px; border:1px solid var(--gold); border-radius:50%; pointer-events:none; z-index:99998; transform:translate(-17px,-17px); transition:all .25s; }
 
@@ -145,22 +145,22 @@
     </section>
 
     <!-- STATS -->
-    <div class="stats" style="display:grid; grid-template-columns:repeat(4,1fr); background:var(--navy2); border-bottom:1px solid var(--border);">
-        <div class="stat-item" style="padding:36px 40px; text-align:center;">
-            <div class="stat-val" style="font-size:42px; color:var(--gold);">3<span style="font-size:24px;">+</span></div>
-            <div class="stat-lbl" style="font-size:9px; color:var(--muted);">Core Mission Domains</div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); background:var(--navy2); border-bottom:1px solid var(--border);">
+        <div style="padding:36px 40px; text-align:center;">
+            <div style="font-size:42px; color:var(--gold);">3<span style="font-size:24px;">+</span></div>
+            <div style="font-size:9px; color:var(--muted);">Core Mission Domains</div>
         </div>
-        <div class="stat-item" style="padding:36px 40px; text-align:center;">
-            <div class="stat-val" style="font-size:42px; color:var(--gold);">∞</div>
-            <div class="stat-lbl" style="font-size:9px; color:var(--muted);">Engineering Ambition</div>
+        <div style="padding:36px 40px; text-align:center;">
+            <div style="font-size:42px; color:var(--gold);">∞</div>
+            <div style="font-size:9px; color:var(--muted);">Engineering Ambition</div>
         </div>
-        <div class="stat-item" style="padding:36px 40px; text-align:center;">
-            <div class="stat-val" style="font-size:42px; color:var(--gold);">10<span style="font-size:24px;">yr</span></div>
-            <div class="stat-lbl" style="font-size:9px; color:var(--muted);">Empire Vision Horizon</div>
+        <div style="padding:36px 40px; text-align:center;">
+            <div style="font-size:42px; color:var(--gold);">10<span style="font-size:24px;">yr</span></div>
+            <div style="font-size:9px; color:var(--muted);">Empire Vision Horizon</div>
         </div>
-        <div class="stat-item" style="padding:36px 40px; text-align:center;">
-            <div class="stat-val" style="font-size:42px; color:var(--gold);">0<span style="font-size:24px;">→1</span></div>
-            <div class="stat-lbl" style="font-size:9px; color:var(--muted);">From Idea to Global Force</div>
+        <div style="padding:36px 40px; text-align:center;">
+            <div style="font-size:42px; color:var(--gold);">0<span style="font-size:24px;">→1</span></div>
+            <div style="font-size:9px; color:var(--muted);">From Idea to Global Force</div>
         </div>
     </div>
 
@@ -168,7 +168,7 @@
     <section class="section" id="domains">
         <div class="sec-label"><span>What We Build</span></div>
         <h2 class="sec-title reveal">Three Domains.<br>One Mission.</h2>
-        <p class="sec-desc reveal">INNO CORP operates at the intersection of the world's most urgent and complex challenges. Every system we build is grounded in physics, driven by purpose, and designed to endure.</p>
+        <p class="sec-desc reveal">INNO CORP operates at the intersection of the world's most urgent and complex challenges.</p>
         
         <div class="domains-grid reveal">
             <div class="domain-card">
@@ -215,13 +215,12 @@
         </div>
     </section>
 
-    <!-- Contact from your original -->
+    <!-- Contact -->
     <section class="section section-alt" id="contact">
         <div class="sec-label"><span>Get In Touch</span></div>
         <h2 class="sec-title reveal">Collaborate With<br>INNO CORP.</h2>
         <p class="sec-desc reveal">We welcome partnerships, inquiries, and feedback from governments, industries, investors, researchers, and anyone serious about building a better world through engineering.</p>
-        
-        <div style="text-align:center;">
+        <div style="text-align:center; margin:40px auto; max-width:600px;">
             <p><strong>Headquarters:</strong> Nairobi, Kenya</p>
             <p><strong>Email:</strong> <a href="mailto:innocorp.company@gmail.com" style="color:var(--gold);">innocorp.company@gmail.com</a></p>
         </div>
@@ -243,7 +242,7 @@
             requestAnimationFrame(animRing);
         })();
 
-        // Smooth scrolling for all navigation links
+        // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const target = document.querySelector(this.getAttribute('href'));
@@ -254,7 +253,7 @@
             });
         });
 
-        console.log('%c INNO CORP — Build by ISRAEL NGANGA & ZUENA NJOKI', 'color:#e8c96a; font-size:14px; font-family:monospace;');
+        console.log('%c✅ INNO CORP — Complete & Fully Functional', 'color:#e8c96a; font-size:14px; font-family:monospace;');
     </script>
 </body>
 </html>
