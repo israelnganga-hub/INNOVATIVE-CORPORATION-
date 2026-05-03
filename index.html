@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INNO CORP. — Innovation Corporation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@200;300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>INNO CORP. — Innovative Corporation</title>
+    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@200;300;400;500;600&family=Share+Tech+Mono&display=swap)" rel="stylesheet">
+    <link rel="stylesheet" href="[cdnjs.cloudflare.com](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css)">
+
     <style>
         :root {
             --navy: #0b1220; --navy2: #0f1a2e; --navy3: #152038;
@@ -35,7 +36,7 @@
         }
         @keyframes grid-shift { to { background-position: 60px 60px; } }
 
-        /* NAV - Clean & Original Feel */
+        /* NAV */
         nav {
             position:fixed; top:0; left:0; right:0; z-index:1000;
             padding: 0 64px; height:76px; display:flex; align-items:center;
@@ -45,7 +46,7 @@
         .nav-logo { display:flex; align-items:center; gap:14px; text-decoration:none; }
         .logo-nut { font-size:38px; color:var(--gold2); filter:drop-shadow(0 0 12px var(--gold-glow)); transition:0.4s; }
         .nav-logo:hover .logo-nut { transform:rotate(25deg) scale(1.08); }
-        .nav-logo-text { font-family:'Cinzel', serif; font-size:18px; font-weight:700; color:var(--white); letter-spacing:4px; }
+        .nav-logo-text { font-family:'Cinzel', serif; font-size:18px; font-weight:700; color:#fff; letter-spacing:4px; }
         .nav-logo-text span { color:var(--gold2); }
 
         .nav-links { display:flex; gap:36px; list-style:none; }
@@ -66,33 +67,64 @@
             color:var(--navy); background:linear-gradient(135deg, var(--gold2), var(--gold3));
             padding:10px 26px; text-decoration:none; text-transform:uppercase;
             box-shadow:0 4px 20px var(--gold-glow); transition:all .3s;
+            border:none; cursor:pointer;
         }
         .nav-cta:hover { transform:translateY(-2px); box-shadow:0 8px 25px var(--gold-glow); }
 
-        /* Hero */
+        /* HERO */
         .hero {
             min-height:100vh; display:flex; flex-direction:column; justify-content:center;
             position:relative; padding:140px 64px 100px;
             background: linear-gradient(rgba(11,18,32,0.75), rgba(11,18,32,0.88)),
-                        url('https://picsum.photos/id/1015/2000/1300') center/cover no-repeat fixed;
+                        url('[picsum.photos](https://picsum.photos/id/1015/2000/1300)') center/cover no-repeat fixed;
         }
+        .btn-gold{
+            background:linear-gradient(135deg, var(--gold2), var(--gold3));
+            color:var(--navy); border:none; padding:14px 40px;
+            font-family:'Cinzel',serif; text-transform:uppercase; letter-spacing:2px;
+            text-decoration:none; cursor:pointer; display:inline-block;
+            box-shadow:0 4px 20px var(--gold-glow); transition:all .3s;
+        }
+        .btn-gold:hover{ transform:translateY(-2px); box-shadow:0 8px 25px var(--gold-glow); }
 
-        /* Shine effects */
-        .btn-gold:hover, .domain-card:hover {
-            box-shadow: 0 12px 35px var(--gold-glow);
+        /* Sections */
+        section { padding:100px 64px; background:var(--navy2); border-top:1px solid var(--border2); }
+        section h2 { font-family:'Cinzel', serif; color:var(--gold2); margin-bottom:20px; }
+        section p { max-width:800px; }
+
+        /* Contact */
+        form { display:flex; flex-direction:column; gap:14px; max-width:480px; }
+        input, textarea {
+            background:var(--navy3); border:1px solid var(--border2);
+            padding:12px; color:#fff; font-family:'Raleway'; border-radius:6px;
+        }
+        input::placeholder, textarea::placeholder { color:#7890a8; }
+        textarea { min-height:120px; }
+        .submit-btn {
+            align-self:flex-start;
+            background:linear-gradient(135deg,var(--gold2),var(--gold3));
+            border:none; color:var(--navy); text-transform:uppercase;
+            padding:12px 32px; font-family:'Share Tech Mono', monospace; font-size:11px;
+            box-shadow:0 4px 20px var(--gold-glow); cursor:pointer; transition:.3s;
+        }
+        .submit-btn:hover{ transform:translateY(-2px); box-shadow:0 8px 25px var(--gold-glow); }
+
+        footer {
+            text-align:center; padding:40px; font-size:12px; color:var(--muted);
+            border-top:1px solid var(--border2); background:var(--navy3);
         }
 
         .reveal { opacity:0; transform:translateY(40px); transition:all .8s ease; }
         .reveal.visible { opacity:1; transform:translateY(0); }
     </style>
 </head>
+
 <body>
     <div class="cursor" id="cursor"></div>
     <div class="cursor-ring" id="cursorRing"></div>
 
-    <!-- NAV -->
     <nav>
-        <a href="#" class="nav-logo">
+        <a href="#hero" class="nav-logo">
             <i class="fas fa-nut logo-nut"></i>
             <span class="nav-logo-text">INNO<span> CORP.</span></span>
         </a>
@@ -111,23 +143,70 @@
     <section class="hero" id="hero">
         <div style="max-width:920px; position:relative; z-index:2;">
             <div class="hero-eyebrow">
-                <span class="eyebrow-text">Innovation Corporation</span>
-                <span class="eyebrow-dot">NAIROBI, KENYA</span>
+                <span class="eyebrow-text">Innovation Corporation</span> ·
+                <span class="eyebrow-dot">Nairobi, Kenya</span>
             </div>
             <h1 style="font-family:'Cinzel', serif; font-size:clamp(52px, 8vw, 94px); line-height:1.05; color:#fff; letter-spacing:2px;">
                 BUILDING A<br><span style="color:var(--gold2);">BETTER</span><br>WORLD
             </h1>
             <p style="font-size:1.4rem; color:#b8d0e8; margin:30px 0 50px;">Defence · Environment · Humanity</p>
             <div>
-                <a href="#domains" class="btn-gold" style="padding:16px 42px; font-family:'Cinzel',serif; font-size:13px; letter-spacing:3px; text-decoration:none; display:inline-block; margin-right:16px;">Explore Our Work</a>
+                <a href="#domains" class="btn-gold">Explore Our Work</a>
                 <a href="#contact" class="nav-cta">Partner With Us</a>
             </div>
         </div>
     </section>
 
-    <!-- Paste the rest of your original sections here (Domains with updated descriptions, Mission, Capabilities, Projects, Roadmap, Contact, Footer) -->
+    <!-- DOMAINS -->
+    <section id="domains">
+        <h2>Our Domains</h2>
+        <p>We operate at the intersection of defense, environmental resilience, and humanitarian technology — developing innovations that protect, sustain, and empower communities worldwide.</p>
+    </section>
+
+    <!-- MISSION -->
+    <section id="mission">
+        <h2>Our Mission</h2>
+        <p>To transform ideas into impactful technologies that drive global progress — guided by innovation, integrity, and a deep respect for humanity.</p>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section id="capabilities">
+        <h2>Capabilities</h2>
+        <p>Our expertise spans AI systems, sustainable energy, defense-grade materials, and humanitarian logistics infrastructure — enabling partners to build solutions for a safer and more equitable world.</p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <h2>Key Projects</h2>
+        <p>From intelligent disaster response systems to clean energy microgrids, our projects demonstrate how technology and vision create meaningful real-world impact.</p>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap">
+        <h2>Roadmap</h2>
+        <p>2026–2028: Expansion into renewable defense tech, AI-driven supply chain systems, and regional innovation hubs across Africa.</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Interested in partnership or collaboration? Send us a message below — we’ll respond promptly.</p>
+        <form action="mailto:innocorp.company@gmail.com" method="post" enctype="text/plain">
+            <input type="text" name="Name" placeholder="Your Name" required>
+            <input type="email" name="Email" placeholder="Your Email" required>
+            <textarea name="Message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        © <span id="year"></span> INNO CORP. — Innovation Corporation. All Rights Reserved.
+    </footer>
 
     <script>
+        // Dynamic Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
         // Cursor
         const cur = document.getElementById('cursor');
         const ring = document.getElementById('cursorRing');
@@ -143,7 +222,7 @@
             requestAnimationFrame(ringAnim);
         })();
 
-        // Smooth scrolling
+        // Smooth scroll (redundant safe)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const target = document.querySelector(this.getAttribute('href'));
@@ -154,7 +233,16 @@
             });
         });
 
-        console.log('%c✅ INNO CORP — Final Version Ready | Built with Grok', 'color:#e8c96a; font-size:14px; font-family:monospace;');
+        // Reveal animation on scroll
+        const reveals = document.querySelectorAll('.reveal');
+        window.addEventListener('scroll', () => {
+            for (const el of reveals) {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) el.classList.add('visible');
+            }
+        });
+
+        console.log('%cn INNO CORP — Fully functional version ready | innocorp.company@gmail.com', 'color:#e8c96a; font-size:14px; font-family:monospace;');
     </script>
 </body>
 </html>
