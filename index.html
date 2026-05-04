@@ -21,7 +21,10 @@
             background: var(--navy); color: var(--text);
             font-family: 'Raleway', sans-serif; font-weight: 300;
             overflow-x: hidden; cursor: none;
+          
         }
+
+}
 
         /* Shiny Cursor */
         .cursor { position:fixed; width:9px; height:9px; background:var(--gold2); border-radius:50%; pointer-events:none; z-index:99999; mix-blend-mode:screen; box-shadow:0 0 15px var(--gold-glow); }
@@ -30,11 +33,22 @@
         /* Background */
         body::after {
             content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
-            background-image: linear-gradient(rgba(201,168,76,0.035) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(201,168,76,0.035) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(11,18,32,0.45) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(11,18,32,0.6) 1px, transparent 1px);
             background-size: 60px 60px; animation: grid-shift 30s linear infinite;
         }
         @keyframes grid-shift { to { background-position: 60px 60px; } }
+        .hero {
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
+    padding:140px 64px 100px;
+    background:
+        linear-gradient(rgba(11,18,32,0.45), rgba(11,18,32,0.6)),
+        url('https://picsum.photos/id/1015/2000/1300') center/cover no-repeat;
+}
 
         /* NAV */
         nav {
